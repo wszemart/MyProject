@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div><a href="{% url 'main' %}">BACK</a></div>
+<table>
+    </tr>
+        <th>Date</th>
+        <td>{{ film.date.day }}</td><td>{{ film.date.hour }}</td>
+    </tr>
+    </tr>
+        <th>Genre</th>
+        <td>{{ film.main.genre }}</td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td>{{ film.detail.title }}</td>
+    </tr>
+
+</table>
+{% endblock content %}

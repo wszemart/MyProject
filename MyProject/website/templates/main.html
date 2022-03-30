@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ film_details_form }}
+    {{ film_main_form }}
+    {{ film_date_form }}
+
+
+
+    <input type="submit" value="Search">
+</form>
+<table>
+    <tr>
+        <th>Genre</th>
+        <th>Country</th>
+        <th>Premiere</th>
+<!--        <th>Time</th>-->
+        <th>Director</th>
+        <th>Title</th>
+        <th>Day</th>
+        <th>Hour</th>
+
+
+
+    </tr>
+{% for film in films %}
+    <tr>
+                <td>{{ film.main.genre }}</td>
+                <td>{{ film.detail.country }}</td>
+                <td>{{ film.detail.premiere }}</td>
+<!--                <td>{{ film.detail.time }}</td>-->
+                <td>{{ film.detail.director }}</td>
+                <td>{{ film.detail.title }}</td>
+                <td>{{ film.date.day }}</td>
+                <td>{{ film.date.hour }}</td>
+
+
+
+
+                <td><a href="{% url 'film' film.id %}"> Reserve </a></td>
+
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock content %}
